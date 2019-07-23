@@ -69,6 +69,18 @@ void DeleteFromBeginning(){
     free(temp);
 }
 
+void DeleteFromN(int position){
+    struct Node *temp;
+    int i;
+    for(i=0; i<position-2; i++){
+        temp = temp->next;
+    }
+    struct Node *temp1 = temp->next; //Node n
+    temp->next = temp1->next;
+    free(temp1);
+
+}
+
 void Print(){
     struct Node *traverseNode;
     traverseNode = START;
@@ -77,7 +89,29 @@ void Print(){
         printf("%d \n", traverseNode->data);
         traverseNode = traverseNode->next;
     }
+
     
+}
+
+
+void DeleteLastElement(){
+    struct Node *temp;
+
+    temp = START;
+
+    while(temp!=NULL){
+        printf("%d", temp->data);
+        temp = temp->next;
+    }
+    printf("Last node element is %d",temp->data);
+}
+
+void test(){
+    struct Node *temp;
+
+    temp = START;
+
+    prindata);
 }
 
 
@@ -93,13 +127,14 @@ int main(){
     
     Insert(4);
     
-    InsertAtBeginning(5);
-
-    InsertAtBeginning(10);
-
-    DeleteFromBeginning();
-
+    Insert(5);
+    
+    Insert(6);
+    
+    
     Print();
+
+    
 
 
 }
