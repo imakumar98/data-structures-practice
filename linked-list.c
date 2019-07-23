@@ -1,18 +1,19 @@
 #include <stdio.h>
 #include <malloc.h>
 
-struct Node *createNode(int data);
-void Insert(int data);
-void Print();
 
+//DEFINING NODE
 struct Node{
     int data;
     struct Node *next;
 };
 
+
+//DECLARING HEAD NODE
 struct Node *START = NULL;
 
 
+//FUNCTION TO CREATE NODE
 struct Node *createNode(int data){
     struct Node *temp;
 
@@ -23,6 +24,7 @@ struct Node *createNode(int data){
 }
 
 
+//FUNCTION TO INSERT NODE AT END
 void Insert(int data){
     struct Node *temp;
     temp = createNode(data);
@@ -37,9 +39,9 @@ void Insert(int data){
         }
         traverseNode->next = temp;
     }
-
 }
 
+//FUNCTION TO INSERT NODE AT BIGINNING
 void InsertAtBeginning(int data){
     struct Node *temp;
     temp = createNode(data);
@@ -47,12 +49,13 @@ void InsertAtBeginning(int data){
     START = temp;
 }
 
+
+//FUNCTIONT TO INSERT NODE AT N POSITION
 void InsertAtN(int data, int position){
     struct Node *temp;
     struct Node *traverseNode;
     int i;
     temp = createNode(data);
-
     traverseNode = START;
     
     for(i = 0; i<position-2; i++){
@@ -62,6 +65,8 @@ void InsertAtN(int data, int position){
     traverseNode->next = temp;
 }
 
+
+//FUNCTION TO DELETE NODE FROM BEGINNING
 void DeleteFromBeginning(){
     struct Node *temp;
     temp = START;
@@ -69,6 +74,8 @@ void DeleteFromBeginning(){
     free(temp);
 }
 
+
+//FUNCTION TO DELETE NODE FROM N POSITION
 void DeleteFromN(int position){
     struct Node *temp;
     int i;
@@ -81,19 +88,8 @@ void DeleteFromN(int position){
 
 }
 
-void Print(){
-    struct Node *traverseNode;
-    traverseNode = START;
 
-    while(traverseNode!=NULL){
-        printf("%d \n", traverseNode->data);
-        traverseNode = traverseNode->next;
-    }
-
-    
-}
-
-
+//FUNCTION TO DELETE ELEMENT FROM LAST POSITION
 void DeleteLastElement(){
     struct Node *temp;
 
@@ -106,20 +102,24 @@ void DeleteLastElement(){
     printf("Last node element is %d",temp->data);
 }
 
-void test(){
-    struct Node *temp;
 
-    temp = START;
+//FUNCTION TO PRINT ALL NODE VALUES
+void Print(){
+    struct Node *traverseNode;
+    traverseNode = START;
 
-    prindata);
+    while(traverseNode!=NULL){
+        printf("%d \n", traverseNode->data);
+        traverseNode = traverseNode->next;
+    }
 }
 
 
 
 
-int main(){
 
-    
+
+int main(){
 
     Insert(2);
     
