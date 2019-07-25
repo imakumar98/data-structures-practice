@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <malloc.h>
 
+struct Node *createNode(int x);
+void Insert();
+void Print();
+int GetLengthOfLinkedList();
+int GetValueByIndex(int x);
+
 
 struct Node{
 	int data;
@@ -62,31 +68,48 @@ void Print(){
 
 void GetMiddleValue(){
 
-	//Length of node
-	struct Node *traverseNode = START;
+	
 
-	while(traverseNode!=NULL){
+	int length;
 
-	}
+	length = GetLengthOfLinkedList();
+
+	int middleIndex = (length/2)+1;
+
+	int value = GetValueByIndex(middleIndex);
+
+	printf("Middle value of linked list :  %d", value);
+
 
 
 }
 
-void GetLengthOfLinkedList(){
+int GetLengthOfLinkedList(){
 
 	struct Node *traverseNode = START;
 	int count = 0;
 	int middle;
+	int i;
 	while(traverseNode!=NULL){
 		count++;
 		traverseNode = traverseNode->next;
 	}
 
-	printf("\n Length of linked list : %d", count);
-	middle = (count/2)+1;
-	printf("Middle Node : %d", middle);
+	return count;
+}
 
 
+//FUNCTION TO PRINT NODE VALUE NBY INDEX
+int GetValueByIndex(int index){
+
+	struct Node *temp = START;
+	int i;
+	for(i=0; i<index-1;i++){
+		temp = temp->next;
+	}
+	return temp->data;
+
+	
 }
 
 
@@ -101,11 +124,12 @@ int main(){
 
 	Insert(5);
 
-	//Insert(6);
+	Insert(6);
 
-	// GetMiddleValue(); //4
+	Insert(7);
 
-	// Print();
+	Insert(8);
 
-	GetLengthOfLinkedList();
+	GetMiddleValue();
+
 }
