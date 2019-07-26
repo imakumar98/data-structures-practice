@@ -84,6 +84,21 @@ void GetMiddleValue(){
 
 }
 
+void GetMiddleValueMethodTwo(){
+
+	struct Node *traverseNodeOne = START;
+	struct Node *traverseNodeTwo = START;
+
+	//printf("Test function : %d", traverseNodeOne->next->next->data);
+
+	while(traverseNodeTwo!=NULL && traverseNodeTwo->next!=NULL){
+		traverseNodeOne = traverseNodeOne->next;
+		traverseNodeTwo = traverseNodeTwo->next->next;
+	}
+
+	printf("Middle value of linked list : %d", traverseNodeOne->data);
+}
+
 int GetLengthOfLinkedList(){
 
 	struct Node *traverseNode = START;
@@ -130,6 +145,8 @@ int main(){
 
 	Insert(8);
 
-	GetMiddleValue();
+	GetMiddleValueMethodTwo();
+
+	//GetMiddleValue();
 
 }
