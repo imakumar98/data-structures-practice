@@ -57,7 +57,7 @@ void InsertAtN(int data, int position){
     int i;
     temp = createNode(data);
     traverseNode = START;
-    
+
     for(i = 0; i<position-2; i++){
         traverseNode = traverseNode->next;//Here traverseNode is pointing to (n-1) node
     }
@@ -122,19 +122,19 @@ void Print(){
 int main(){
 
     Insert(2);
-    
+
     Insert(3);
-    
+
     Insert(4);
-    
+
     Insert(5);
-    
+
     Insert(6);
-    
-    
+
+
     Print();
 
-    
+
 
 
 }
