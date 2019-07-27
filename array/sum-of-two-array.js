@@ -11,7 +11,7 @@ var ans = 0;
 
 for(var i=3; i>=0;i--){
 
-	if(!b[i]){
+	if(b[i]){
 		sum = a[i] + carry;
 	}else{
 		sum = a[i] + b[i] + carry;
