@@ -47,6 +47,36 @@ public:
 		cout<<endl;
 	}
 
+	//Function to find nth from last
+	
+
+	int nToLast(int n){
+		Node *current = head;
+		Node *follower = head;
+
+		for(int i=0;i<n;i++){
+			current = current->next;
+		}
+		
+		while(current!=NULL){
+			current = current->next;
+			follower = follower->next;
+		}
+		
+		return follower->data;
+	}
+
+	void deleteMiddleElement(){
+		Node *slow = head;
+		Node *fast = head;
+
+		while(fast!=NULL){
+			slow = slow->next;
+			fast = fast->next->next;
+		}
+		cout<<"Middle element is : "<<slow->data;
+	}
+
 
 
 };
@@ -59,6 +89,10 @@ int main(){
 	ll.insert(20);
 	ll.insert(30);
 	ll.insert(40);
-	ll.print();
+	//ll.insert(50);
+	//int last = ll.nToLast(3);
+	//cout<<"N to last element is : "<<last<<endl;
+	ll.deleteMiddleElement();
+	// ll.print();
 
 }
