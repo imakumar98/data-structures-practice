@@ -53,6 +53,20 @@ public:
 
 	}
 
+	void reverse(){
+		Node *prev = NULL;
+		Node *current = head;
+		Node *next = NULL;
+
+		while(current!=NULL){
+			next = current->next;
+			current->next = prev;
+			prev = current;
+			current = next;
+		}
+		head = prev;
+	}
+
 	
 
 
@@ -89,18 +103,16 @@ int main(){
 	ll1.insert(9);
 	ll1.insert(7);
 	ll1.insert(8);
+	ll1.insert(6);
 
 
 	ll1.print();
 
-	LinkedList ll2;
-	ll2.insert(8);
-	ll2.insert(7);
-	ll2.insert(5);
+	ll1.reverse();
 
-	ll2.print();
+	ll1.print();
 
-	addTwoNumber(ll1.head, ll2.head);
+	
 
 
 }
