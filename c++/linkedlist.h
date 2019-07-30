@@ -1,7 +1,7 @@
-#include <iostream>
+// #include <iostream>
 
 
-using namespace std;
+// using namespace std;
 
 
 struct Node{
@@ -82,17 +82,17 @@ public:
 };
 
 
-int main(){
+// int main(){
 
-	LinkedList ll;
-	ll.insert(10);
-	ll.insert(20);
-	ll.insert(30);
-	ll.insert(40);
-	//ll.insert(50);
-	//int last = ll.nToLast(3);
-	//cout<<"N to last element is : "<<last<<endl;
-	ll.deleteMiddleElement();
-	// ll.print();
+// 	LinkedList ll;
+// 	ll.insert(10);
+// 	ll.insert(20);
+// 	ll.insert(30);
+// 	ll.insert(40);
+// 	//ll.insert(50);
+// 	//int last = ll.nToLast(3);
+// 	//cout<<"N to last element is : "<<last<<endl;
+// 	ll.deleteMiddleElement();
+// 	// ll.print();
 
-}
+// }
