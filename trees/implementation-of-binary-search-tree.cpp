@@ -33,6 +33,17 @@ Node *insert(Node *root, int data){
 };
 
 
+bool Search(Node *root, int data){
+	if(root==NULL) return false;
+	if(root->data==data) return true;
+
+	else if(data<=root->data) return Search(root->left, data);
+
+	else return Search(root->right, data);
+
+}
+
+
 
 
 int main(){
@@ -41,5 +52,10 @@ int main(){
 	root = insert(root, 15);
 	root = insert(root, 10);
 	root = insert(root, 20);
+
+	
+	if(Search(root, 10)==true) cout<<"Found\n";
+
+	else cout<<"Not found\n";
 	
 }
