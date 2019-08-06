@@ -15,7 +15,7 @@ int main(){
   int i = 0, j = 0, k = 0;
 
 
-  while(i < length_of_a && j<length_of_a){
+  while(i < length_of_a && j<length_of_b){
 
     if(a[i]<b[j]){
       c[k] = a[i];
