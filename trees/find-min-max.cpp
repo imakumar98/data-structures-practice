@@ -60,6 +60,21 @@ class BinaryTree{
 			return traverseNode->data;
 		}
 
+		int minUsingRecursion(root){
+
+			if(root==NULL){
+				return -1;
+			}
+			else if(root->left==NULL){
+				return root->data;
+			}
+			
+			return minUsingRecursion(root->left);
+		
+
+
+		}
+
 }
 
 
