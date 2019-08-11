@@ -65,7 +65,6 @@ class LinkedList{
 				traverseNode = traverseNode->next;
 			}
 			traverseNode->next = traverseNode->next->next;
-			
 		}
 
 		//Function to delete node from end
@@ -76,6 +75,17 @@ class LinkedList{
 			}
 			traverseNode->next = NULL;
 			delete traverseNode->next;
+		}
+
+		//Function to find length of linked list
+		void length(){
+			Node *traverseNode = head;
+			int length = 0;
+			while(traverseNode!=NULL){
+				length = length + 1;
+				traverseNode = traverseNode->next;
+			}
+			cout<<"Length of linked list : "<<length;
 		}
 
 		//Function to print linked list
@@ -103,15 +113,7 @@ int main(){
 	ll.insertAtEnd(20);
 	ll.insertAtEnd(30);
 	ll.insertAtStart(40);
-	
-
 	ll.insertAtN(50,3);
-
-	ll.print();
-
-	ll.deleteFromN(3);
-
-	ll.print();
-
+	ll.length();
 	//ll.print();
 }
