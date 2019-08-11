@@ -1,27 +1,25 @@
 #include <iostream>
 
+
 using namespace std;
 
-//DEFINE NODE
 struct Node{
 	int data;
 	struct Node *next;
 };
 
+void addTwoNumber(Node *head1, Node* head2);
 
-//LINKED LIST CLASS
+
+
+
 class LinkedList{
 
 public:
 
 	Node *head = NULL;
 
-	Node *getHead(){
-		return head;
-	}
 
-
-	//FUNCTION TO CREATE NODE
 	Node *createNode(int value){
 		Node *temp = new Node;
 		temp->data = value;
@@ -29,9 +27,10 @@ public:
 		return temp;
 	}
 
-	//FUNCTION TO INSERT NODE
 	void insert(int value){
 		Node *temp = createNode(value);
+
+
 		if(head==NULL){
 			head = temp;
 			return;
@@ -43,76 +42,103 @@ public:
 		traverseNode->next = temp;
 	}
 
+
+	void insertAtHead(int value){
+		Node *newNode = createNode(value);
+
+		newNode->next = head;
+
+		head= newNode;
+
+	}
+
 	void print(){
 		Node *traverseNode = head;
 		while(traverseNode!=NULL){
 			cout<<traverseNode->data<<"->";
 			traverseNode = traverseNode->next;
 		}
-		cout<<"NULL"<<endl;
-
+		cout<<"NULL";
+		cout<<endl;
 	}
-
-	void reverse(){
-		Node *prev = NULL;
-		Node *current = head;
-		Node *next = NULL;
-
-		while(current!=NULL){
-			next = current->next;
-			current->next = prev;
-			prev = current;
-			current = next;
-		}
-		head = prev;
-	}
-
-	
-
-
-
 };
 
-void addTwoNumber(Node *head1, Node *head2){
-	Node *traverseNode1 = head1;
-	Node *traverseNode2 = head2;
-	
-	LinkedList ll3;
 
-	int sum;
 
-	int carry = 0;
 
-	while(traverseNode1!=NULL){
-		sum = traverseNode1->data + traverseNode2->data + carry;
-
-		ll3.insert(sum%10);
-		traverseNode1 = traverseNode1->next;
-		traverseNode2 = traverseNode2->next;
-		carry = sum/10;
-
-	}
-	// cout<<"Test message : "<<traverseNode1->data;
-	cout<<"New Linked list after addition : ";
-	ll3.print();
-	cout<<endl;
-}
 
 int main(){
+
 	LinkedList ll1;
-	ll1.insert(9);
-	ll1.insert(7);
-	ll1.insert(8);
-	ll1.insert(6);
+	ll1.insertAtHead(9);
+	ll1.insertAtHead(4);
+	ll1.insertAtHead(5);
+
+	LinkedList ll2;
+	ll2.insertAtHead(1);
+	ll2.insertAtHead(2);
+	ll2.insertAtHead(3);
 
 
-	ll1.print();
+	addTwoNumber(ll1.head, ll2.head);
 
-	ll1.reverse();
-
-	ll1.print();
 
 	
+}
+
+
+void addTwoNumber(Node *head1, Node *head2){
+
+	int sum = 0;
+	int carry = 0;
+
+	Node *traverseNodeOne = head1;
+	Node *traverseNodeTwo = head2;
+
+	LinkedList ll3;
+
+
+	LinkedList ll1;
+	LinkedList ll2;
+	ll2.head = head2;
+	ll1.head = head1;
+
+	ll1.print();
+
+	ll2.print();
+	
+
+	
+
+
+	while(traverseNodeOne!=NULL || traverseNodeTwo!=NULL){
+
+		sum = carry + traverseNodeOne->data + traverseNodeTwo->data;
+
+		if(traverseNodeOne->next==NULL || traverseNodeTwo->next==NULL){
+			ll3.insert(sum);
+
+		}else{
+			ll3.insert(sum%10);
+		}
+
+		
+		
+		
+
+		//ll3.insertAtHead(sum%10);
+
+		carry = sum/10;
+
+		traverseNodeOne = traverseNodeOne->next;
+		traverseNodeTwo = traverseNodeTwo->next;
+
+
+
+
+	}
+
+	ll3.print();
 
 
 }

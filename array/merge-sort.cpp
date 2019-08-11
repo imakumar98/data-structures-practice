@@ -2,19 +2,18 @@
 
 using namespace std;
 
-void mergeSort(){
+void mergeSort(int arr1[], int arr2[]){
 	int i=0;
 	int j=0;
 	int k =0;
 
-	int arr1[5] = {5,10,40,54,90};
-	int arr2[5] = {23,27,39,83,94};
+	
 
 	int arr3[10];
 
-	int length_of_arr1 = 5;
+	int length_of_arr1 = sizeof(arr1)/sizeof(arr1[0]);
 
-	int length_of_arr2 = 5;
+	int length_of_arr2 = sizeof(arr2)/sizeof(arr2[0]);
 
 	while(i<length_of_arr1 && j<length_of_arr2){
 
@@ -43,18 +42,30 @@ void mergeSort(){
 		
 	}
 
-	//Print arr3
-
-	for(int l=0;l<10;l++){
-		cout<<arr3[l]<<endl;
-	}
+	
 }
 
 int main(){
 
-	
+	int arr[10] = {5,10,40,54,90,23,27,39,83,94};
 
-	mergeSort();
+	int arr1[];
+	int arr2[];
+
+	int mid;
+
+	int length = sizeof(arr)/sizeof(arr[0]);
+
+	mid = length/2;
+
+	int left = mid;
+
+	int right = length = mid;
+
+	for(int i=0; i<left;i++){
+		left[i] = arr[i];
+	}
+	
 
 
 }
