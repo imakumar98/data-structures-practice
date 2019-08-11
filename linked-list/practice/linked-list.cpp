@@ -119,14 +119,53 @@ class LinkedList{
 };
 
 
+//Function to merge two sorted linked list
+void mergeTwoSortedLinkedList(Node *head1, Node *head2){
+	Node *traverseNodeOne = head1;
+	Node *traverseNodeTwo = head2;
+
+	LinkedList ll3;
+
+	while(traverseNodeOne!=NULL && traverseNodeTwo!=NULL){
+		if(traverseNodeOne->data<=traverseNodeTwo->data){
+			ll3.insertAtEnd(traverseNodeOne->data);
+			traverseNodeOne = traverseNodeOne->next;
+		}else{
+			ll3.insertAtEnd(traverseNodeTwo->data);
+			traverseNodeTwo = traverseNodeTwo->next;
+		}
+	}
+
+	while(traverseNodeOne!=NULL){
+		ll3.insertAtEnd(traverseNodeOne->data);
+		traverseNodeOne = traverseNodeOne->next;
+	}
+
+	while(traverseNodeTwo!=NULL){
+		ll3.insertAtEnd(traverseNodeTwo->data);
+		traverseNodeTwo = traverseNodeTwo->next;
+	}
+
+	cout<<"Resultant linked list after merging : ";
+	ll3.print();
+
+
+}
+
+
 int main(){
-	LinkedList ll;
-	ll.insertAtEnd(10);
-	ll.insertAtEnd(20);
-	//ll.insertAtEnd(30);
-	ll.insertAtStart(40);
-	ll.insertAtN(50,3);
-	//ll.length();
-	ll.print();
-	ll.getMiddle();
+	LinkedList ll1;
+	LinkedList ll2;
+	
+	ll1.insertAtEnd(10);
+	ll1.insertAtEnd(20);
+	ll1.insertAtEnd(30);
+	ll1.insertAtEnd(40);
+
+	ll2.insertAtEnd(15);
+	ll2.insertAtEnd(25);
+	ll2.insertAtEnd(35);
+	ll2.insertAtEnd(45);
+
+	mergeTwoSortedLinkedList(ll1.head, ll2.head);
 }
