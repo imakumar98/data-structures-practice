@@ -27,6 +27,18 @@ class LinkedList{
 			head = tempNode;
 		}
 
+		//Function to insert node at n position of linked list
+		void insertAtN(int value, int position){
+			Node *tempNode = createNode(value);
+			Node *traverseNode = head;
+			for(int i=0;i<position-2;i++){
+				traverseNode = traverseNode->next;
+			}
+			tempNode->next = traverseNode->next;
+			traverseNode->next = tempNode;
+			
+		}
+
 		//Function to insert node at end of linked list
 		void insertAtEnd(int value){
 			Node *tempNode = createNode(value);
@@ -51,7 +63,7 @@ class LinkedList{
 					cout<<traverseNode->data<<"->";
 					traverseNode = traverseNode->next;
 				}
-				cout<<"NULL";
+				cout<<"NULL"<<endl;
 			}
 		}
 
@@ -64,6 +76,10 @@ int main(){
 	ll.insertAtEnd(10);
 	ll.insertAtEnd(20);
 	ll.insertAtEnd(30);
-	ll.insertAtEnd(40);
+	ll.insertAtStart(40);
+	
+	ll.print();
+	ll.insertAtN(50,3);
+
 	ll.print();
 }
