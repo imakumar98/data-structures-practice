@@ -53,14 +53,28 @@ class LinkedList{
 			}
 		}
 
+		//Function to delete node from end
+		void deleteFromEnd(){
+			Node *traverseNode = head;
+
+			while(traverseNode->next->next!=NULL){
+				traverseNode = traverseNode->next;
+			}
+			traverseNode->next = NULL;
+			delete traverseNode->next;
+			
+
+		}
+
 		//Function to print linked list
 		void print(){
 			if(head==NULL){
 				cout<<"Linked list is empty";
 			}else{
 				Node *traverseNode = head;
+
 				while(traverseNode!=NULL){
-					cout<<traverseNode->data<<"->";
+					cout<<"|"<<traverseNode->data<<"|"<<traverseNode->next<<"|"<<"->";
 					traverseNode = traverseNode->next;
 				}
 				cout<<"NULL"<<endl;
@@ -78,8 +92,12 @@ int main(){
 	ll.insertAtEnd(30);
 	ll.insertAtStart(40);
 	
-	ll.print();
+
 	ll.insertAtN(50,3);
+
+	ll.print();
+
+	ll.deleteFromEnd();
 
 	ll.print();
 }
