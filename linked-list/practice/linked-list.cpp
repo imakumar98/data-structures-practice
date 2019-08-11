@@ -34,5 +34,29 @@ class LinkedList{
 			}
 		}
 
+		//Function to print linked list
+		void print(){
+			if(head==NULL){
+				cout<<"Linked list is empty";
+			}else{
+				Node *traverseNode = head;
+				while(traverseNode!=NULL){
+					cout<<traverseNode->data<<"->";
+					traverseNode = traverseNode->next;
+				}
+				cout<<"NULL";
+			}
+		}
+
 
 };
+
+
+int main(){
+	LinkedList ll;
+	ll.insertAtEnd(10);
+	ll.insertAtEnd(20);
+	ll.insertAtEnd(30);
+	ll.insertAtEnd(40);
+	ll.print();
+}
