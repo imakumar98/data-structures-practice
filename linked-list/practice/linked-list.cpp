@@ -20,6 +20,13 @@ class LinkedList{
 			return newNode;
 		}
 
+		//Function to insert node at starting of linked list
+		void insertAtStart(int value){
+			Node *tempNode = createNode(value);
+			tempNode->next = head;
+			head = tempNode;
+		}
+
 		//Function to insert node at end of linked list
 		void insertAtEnd(int value){
 			Node *tempNode = createNode(value);
