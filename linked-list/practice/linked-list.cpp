@@ -100,6 +100,25 @@ class LinkedList{
 			cout<<"Middle value of linked list : "<<traverseNodeOne->data;
 		}
 
+		//Function to reverse linked list
+		void reverse(){
+			Node *prevNode = NULL;
+			Node *currentNode = head;
+			Node *nextNode;
+
+			while(currentNode!=NULL){
+				nextNode = currentNode->next;
+				currentNode->next = prevNode;
+				prevNode = currentNode;
+				currentNode = nextNode;
+
+			}
+			head = prevNode;
+			
+			print();
+		}
+
+
 		//Function to print linked list
 		void print(){
 			if(head==NULL){
@@ -162,10 +181,7 @@ int main(){
 	ll1.insertAtEnd(30);
 	ll1.insertAtEnd(40);
 
-	ll2.insertAtEnd(15);
-	ll2.insertAtEnd(25);
-	ll2.insertAtEnd(35);
-	ll2.insertAtEnd(45);
+	ll1.reverse();
 
-	mergeTwoSortedLinkedList(ll1.head, ll2.head);
+	
 }
