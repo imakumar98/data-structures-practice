@@ -88,6 +88,18 @@ class LinkedList{
 			cout<<"Length of linked list : "<<length;
 		}
 
+		//Function to get middle value of linked list
+		void getMiddle(){
+			Node *traverseNodeOne = head;
+			Node *traverseNodeTwo = head;
+			while(traverseNodeTwo!=NULL && traverseNodeTwo->next!=NULL){
+				traverseNodeOne = traverseNodeOne->next;
+				traverseNodeTwo = traverseNodeTwo->next->next;
+				
+			}
+			cout<<"Middle value of linked list : "<<traverseNodeOne->data;
+		}
+
 		//Function to print linked list
 		void print(){
 			if(head==NULL){
@@ -111,9 +123,10 @@ int main(){
 	LinkedList ll;
 	ll.insertAtEnd(10);
 	ll.insertAtEnd(20);
-	ll.insertAtEnd(30);
+	//ll.insertAtEnd(30);
 	ll.insertAtStart(40);
 	ll.insertAtN(50,3);
-	ll.length();
-	//ll.print();
+	//ll.length();
+	ll.print();
+	ll.getMiddle();
 }
