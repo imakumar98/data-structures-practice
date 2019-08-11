@@ -53,17 +53,29 @@ class LinkedList{
 			}
 		}
 
+		//Function to delete node from starting
+		void deleteFromStart(){
+			head = head->next;
+		}
+
+		//Function to delete node from n position
+		void deleteFromN(int position){
+			Node *traverseNode = head;
+			for(int i=0; i<position-2;i++){
+				traverseNode = traverseNode->next;
+			}
+			traverseNode->next = traverseNode->next->next;
+			
+		}
+
 		//Function to delete node from end
 		void deleteFromEnd(){
 			Node *traverseNode = head;
-
 			while(traverseNode->next->next!=NULL){
 				traverseNode = traverseNode->next;
 			}
 			traverseNode->next = NULL;
 			delete traverseNode->next;
-			
-
 		}
 
 		//Function to print linked list
@@ -97,7 +109,9 @@ int main(){
 
 	ll.print();
 
-	ll.deleteFromEnd();
+	ll.deleteFromN(3);
 
 	ll.print();
+
+	//ll.print();
 }
