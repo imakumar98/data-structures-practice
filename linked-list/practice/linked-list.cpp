@@ -101,7 +101,7 @@ class LinkedList{
 		}
 
 		//Function to reverse linked list
-		void reverse(){
+		Node *reverse(Node *head){
 			Node *prevNode = NULL;
 			Node *currentNode = head;
 			Node *nextNode;
@@ -115,13 +115,37 @@ class LinkedList{
 			}
 			head = prevNode;
 			
-			print();
+			return head;
 		}
 
 		//Function to reverse linked list using recursion
-		// void reverseSubList(int m, int n){
+		void reverseSubList(int start, int end){
+			int numberofNode = start - end;
 
-		// }
+			LinkedList subLinkedList;
+			Node *traverseNode = head;
+			int node = 1;
+			while(traverseNode!=NULL){
+				
+
+				if(node==3 && node<=6){
+					subLinkedList.insertAtEnd(traverseNode->data);
+				}
+
+
+				node = node + 1;
+				traverseNode = traverseNode->next;
+			}
+
+
+			subLinkedList.print();
+
+			
+			
+			
+
+
+		}
 
 		//Function to remove duplicated from linked list
 		void removeDuplicates(){
@@ -149,6 +173,21 @@ class LinkedList{
 
 		//Function to print linked list
 		void print(){
+			if(head==NULL){
+				cout<<"Linked list is empty";
+			}else{
+				Node *traverseNode = head;
+
+				while(traverseNode!=NULL){
+					cout<<"|"<<traverseNode->data<<"|"<<traverseNode->next<<"|"<<"->";
+					traverseNode = traverseNode->next;
+				}
+				cout<<"NULL"<<endl;
+			}
+		}
+
+		//Function to print linked list by taking head as argument
+		void printByHead(Node *head){
 			if(head==NULL){
 				cout<<"Linked list is empty";
 			}else{
@@ -204,18 +243,26 @@ int main(){
 	LinkedList ll;
 	
 	
-	ll.insertAtEnd(1);
-	ll.insertAtEnd(2);
-	ll.insertAtEnd(3);
-	ll.insertAtEnd(2);
-	ll.insertAtEnd(1);
+	ll.insertAtEnd(10);
+	ll.insertAtEnd(20);
+	ll.insertAtEnd(30);
+	ll.insertAtEnd(40);
+	ll.insertAtEnd(50);
+	ll.insertAtEnd(60);
+	ll.insertAtEnd(70);
+	ll.insertAtEnd(80);
+	ll.insertAtEnd(90);
+	
+
 	
 	ll.print();
 
+	ll.reverseSubList(3,6);
 
-	ll.removeDuplicates();
+	
 
-	ll.print();
+
+	
 
 	
 }
