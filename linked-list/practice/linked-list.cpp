@@ -118,6 +118,34 @@ class LinkedList{
 			print();
 		}
 
+		//Function to reverse linked list using recursion
+		// void reverseSubList(int m, int n){
+
+		// }
+
+		//Function to remove duplicated from linked list
+		void removeDuplicates(){
+			
+			int trackArray[10];
+			for(int i=0; i<10; i++){
+				trackArray[i] = 0;
+			}
+
+			Node *prevNode = NULL;
+			Node *currentNode = head;
+			while(currentNode!=NULL){
+				if(trackArray[currentNode->data]==1){
+					prevNode->next = currentNode->next;
+					//delete currentNode;
+				}else{
+					trackArray[currentNode->data]=1;
+					prevNode = currentNode;
+				}
+				
+				currentNode = currentNode->next;
+			}
+		}
+
 
 		//Function to print linked list
 		void print(){
@@ -173,15 +201,21 @@ void mergeTwoSortedLinkedList(Node *head1, Node *head2){
 
 
 int main(){
-	LinkedList ll1;
-	LinkedList ll2;
+	LinkedList ll;
 	
-	ll1.insertAtEnd(10);
-	ll1.insertAtEnd(20);
-	ll1.insertAtEnd(30);
-	ll1.insertAtEnd(40);
+	
+	ll.insertAtEnd(1);
+	ll.insertAtEnd(2);
+	ll.insertAtEnd(3);
+	ll.insertAtEnd(2);
+	ll.insertAtEnd(1);
+	
+	ll.print();
 
-	ll1.reverse();
+
+	ll.removeDuplicates();
+
+	ll.print();
 
 	
 }
