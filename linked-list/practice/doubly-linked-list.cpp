@@ -4,6 +4,7 @@ using namespace std;
 
 
 struct Node{
+	Node *previous;
 	int data;
 	Node *next;
 };
@@ -15,6 +16,7 @@ class LinkedList{
 		//Function to create node
 		Node *createNode(int value){
 			Node *newNode = new Node;
+			newNode->previous = NULL;
 			newNode->data = value;
 			newNode->next = NULL;
 			return newNode;
@@ -42,6 +44,7 @@ class LinkedList{
 		//Function to insert node at end of linked list
 		void insertAtEnd(int value){
 			Node *tempNode = createNode(value);
+			
 			if(head==NULL){
 				head = tempNode;
 			}else{
@@ -49,7 +52,6 @@ class LinkedList{
 				while(traverseNode->next!=NULL){
 					traverseNode = traverseNode->next;
 				}
-				traverseNode->next = tempNode;
 			}
 		}
 
@@ -225,62 +227,14 @@ class LinkedList{
 };
 
 
-//Function to merge two sorted linked list
-void mergeTwoSortedLinkedList(Node *head1, Node *head2){
-	Node *traverseNodeOne = head1;
-	Node *traverseNodeTwo = head2;
 
-	LinkedList ll3;
-
-	while(traverseNodeOne!=NULL && traverseNodeTwo!=NULL){
-		if(traverseNodeOne->data<=traverseNodeTwo->data){
-			ll3.insertAtEnd(traverseNodeOne->data);
-			traverseNodeOne = traverseNodeOne->next;
-		}else{
-			ll3.insertAtEnd(traverseNodeTwo->data);
-			traverseNodeTwo = traverseNodeTwo->next;
-		}
-	}
-
-	while(traverseNodeOne!=NULL){
-		ll3.insertAtEnd(traverseNodeOne->data);
-		traverseNodeOne = traverseNodeOne->next;
-	}
-
-	while(traverseNodeTwo!=NULL){
-		ll3.insertAtEnd(traverseNodeTwo->data);
-		traverseNodeTwo = traverseNodeTwo->next;
-	}
-
-	cout<<"Resultant linked list after merging : ";
-	ll3.print();
-
-
-}
 
 
 int main(){
 	LinkedList ll;
 	
 	
-	ll.insertAtEnd(10);
-	ll.insertAtEnd(20);
-	ll.insertAtEnd(30);
-	ll.insertAtEnd(40);
-	ll.insertAtEnd(50);
-	ll.insertAtEnd(60);
-	ll.insertAtEnd(70);
-	ll.insertAtEnd(80);
-	ll.insertAtEnd(90);
 	
-
-	
-	ll.print();
-
-	Node *h = ll.swap_nodes_in_pair();
-	ll.printByHead(h);
-
-	// ll.reverseSubList(3,6);
 
 	
 
