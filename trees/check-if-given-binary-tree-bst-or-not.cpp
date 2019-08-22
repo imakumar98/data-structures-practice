@@ -33,7 +33,7 @@ Node *Insert(int data, Node *root){
 bool isSubtreeLesser(Node *root, int value){
 	if(root==NULL) return true;
 	if(root->data<value && isSubtreeLesser(root->left, value)
-		&& isSubtreeGreater(root->right, value)){
+		&& isSubtreeLesser(root->right, value)){
 		return true;
 	}else{
 		return false;

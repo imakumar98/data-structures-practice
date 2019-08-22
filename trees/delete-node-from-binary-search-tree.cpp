@@ -45,7 +45,7 @@ int main(){
 
 	root = Insert(17, root);
 
-	root = Insert(25, root);
+	root = Insert(25, root); 
 
 
 
