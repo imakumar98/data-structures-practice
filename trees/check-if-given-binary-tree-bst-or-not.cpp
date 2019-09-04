@@ -42,7 +42,13 @@ bool isSubtreeLesser(Node *root, int value){
 }
 
 bool isSubtreeGreater(Node *root, int value){
-
+	if(root==NULL) return true;
+	if(root->data>value && isSubtreeLesser(root->left, value)
+		&& isSubtreeLesser(root->right, value)){
+		return true;
+	}else{
+		return false;
+	}
 }
 
 bool isBinarySearchTree(Node *root){
