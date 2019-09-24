@@ -25,6 +25,12 @@ int main(){
 int median(int arr[], int length){
 
 	int m = 0;
+
+	if(length%2==0){
+		m = length/2 + length/2+1;
+	}else{
+
+	}
 	
 }
 
