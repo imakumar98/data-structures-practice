@@ -1,0 +1,44 @@
+SORTING TECHNIQUES
+
+1. Bubble Sort
+2. Insertion sort
+3. Selection Sort
+4. Heap Sort
+5. Merge Sort
+6. Quick Sort
+7. Tree Sort
+8. Shell SOrt
+9. Count Sort
+10. Bucket/Bin sort
+11. Radix Sort
+
+
+1-8 are comparison based sorts
+9-11 are Index based sorts
+1-3 are o(N^2)
+4-7 are nlogn
+8 is o(n^3/2)
+9-11 O(n) but consume lot of space
+
+
+
+
+No one is best
+
+
+Criteria for analysis
+1) NUmber of comparison
+2) Number of swaps
+3) Adaptive (What if we already have sorted array)
+4) Stable (Order should not change for duplicate values)
+5) Extra Memory
+
+
+
+
+Bubble Sort
+
+
+
+
+
