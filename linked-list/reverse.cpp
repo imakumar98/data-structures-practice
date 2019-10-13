@@ -39,10 +39,19 @@ void print(){
 }
 
 
+void reverse(){
+    Node *prev = NULL;
+    Node *current = START;
+    Node *next = NULL; 
+}
+
+
 int main(){
     Insert(10);
     Insert(20);
     Insert(30);
 
     print();
+
+    reverse();
 }
